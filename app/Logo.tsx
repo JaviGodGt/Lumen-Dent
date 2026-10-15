@@ -1,0 +1,51 @@
+type LogoProps = {
+  variant?: "header" | "footer" | "hero";
+};
+
+export function LogoMark({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="16" cy="16" r="16" fill="currentColor" className="logo__mark-bg" />
+      <circle
+        cx="16"
+        cy="16"
+        r="14.35"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1"
+        className="logo__mark-ring"
+      />
+      <path
+        d="M10.2 11.2a7.2 7.2 0 0 1 11.6 0"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        className="logo__mark-arc"
+      />
+      <path
+        fill="currentColor"
+        className="logo__mark-tooth"
+        d="M16 8.1c-2.55 0-4.35 1.85-4.35 4.25 0 1.55.45 2.9.95 4.15.3.75.4 1.55.3 2.35l-.25 3.55c-.1 1.15.55 2.05 1.7 2.05.75 0 1.25-.55 1.45-1.35L16 20.6l.2 2.5c.2.8.7 1.35 1.45 1.35 1.15 0 1.8-.9 1.7-2.05l-.25-3.55c-.1-.8 0-1.6.3-2.35.5-1.25.95-2.6.95-4.15 0-2.4-1.8-4.25-4.35-4.25Z"
+      />
+    </svg>
+  );
+}
+
+export default function Logo({ variant = "header" }: LogoProps) {
+  return (
+    <span className={`logo logo--${variant}`}>
+      <LogoMark className="logo__mark" />
+      <span className="logo__word">
+        <span className="logo__name">Lumen</span>
+        <span className="logo__suffix"> Dental</span>
+      </span>
+    </span>
+  );
+}

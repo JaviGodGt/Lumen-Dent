@@ -1,4 +1,6 @@
 import BookingCard from "./BookingCard";
+import Logo, { LogoMark } from "./Logo";
+import MobileNav from "./MobileNav";
 
 const TREATMENTS = [
   {
@@ -93,8 +95,7 @@ export default function Home() {
       <header className="top">
         <div className="wrap top__inner">
           <a href="#" className="brand" aria-label="Lumen Dental, inicio">
-            <span className="brand__mark" aria-hidden="true" />
-            Lumen Dental
+            <Logo />
           </a>
           <nav className="nav" aria-label="Principal">
             <a href="#tratamientos">Tratamientos</a>
@@ -102,36 +103,46 @@ export default function Home() {
             <a href="#equipo">Equipo</a>
             <a href="#preguntas">Preguntas</a>
           </nav>
-          <a href="#reservar" className="btn btn--sun btn--small">
+          <a href="#reservar" className="btn btn--sun btn--small top__cta">
             Reservar cita
           </a>
+          <MobileNav />
         </div>
       </header>
 
       <main id="contenido">
         <section className="hero">
+          <LogoMark className="hero__ghost" />
           <div className="wrap hero__grid">
             <div className="hero__copy">
+              <p className="hero__brand">
+                <Logo variant="hero" />
+              </p>
               <h1 className="hero__title">Sonreír sin prisa.</h1>
               <p className="hero__lead">
                 Revisiones, limpiezas y tratamientos con el tiempo necesario para explicarte cada paso antes de
                 empezar.
               </p>
-              <ul className="facts">
-                <li>
-                  <strong>Primera valoración sin costo</strong>
-                  <span>Dura 30 minutos e incluye revisión y plan por escrito.</span>
-                </li>
-                <li>
-                  <strong>Lunes a viernes de 8:00 a 18:00</strong>
-                  <span>Sábados hasta el mediodía.</span>
-                </li>
-              </ul>
             </div>
 
             <div id="reservar" className="hero__booking">
               <BookingCard />
             </div>
+          </div>
+        </section>
+
+        <section className="trust" aria-label="Ventajas">
+          <div className="wrap">
+            <ul className="trust__list">
+              <li>
+                <strong>Primera valoración sin costo</strong>
+                <span>Dura 30 minutos e incluye revisión y plan por escrito.</span>
+              </li>
+              <li>
+                <strong>Lunes a viernes de 8:00 a 18:00</strong>
+                <span>Sábados hasta el mediodía.</span>
+              </li>
+            </ul>
           </div>
         </section>
 
@@ -211,12 +222,33 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section className="cta-band" aria-labelledby="cta-final-title">
+          <div className="wrap cta-band__inner">
+            <div className="cta-band__copy">
+              <LogoMark className="cta-band__mark" />
+              <div>
+                <h2 id="cta-final-title" className="cta-band__title">
+                  ¿Listo para tu primera visita?
+                </h2>
+                <p className="cta-band__text">
+                  Reserva en menos de un minuto. Te confirmamos el horario al instante.
+                </p>
+              </div>
+            </div>
+            <a href="#reservar" className="btn btn--sun">
+              Reservar cita
+            </a>
+          </div>
+        </section>
       </main>
 
       <footer className="foot">
         <div className="wrap foot__grid">
           <div>
-            <p className="foot__brand">Lumen Dental</p>
+            <p className="foot__brand">
+              <Logo variant="footer" />
+            </p>
             <p className="foot__text">Clínica dental con tiempo para ti.</p>
           </div>
           <div>
@@ -228,6 +260,18 @@ export default function Home() {
             <p className="foot__head">Contacto</p>
             <p className="foot__text">hola@lumendental.example</p>
             <p className="foot__text">Dirección de ejemplo, local 4</p>
+          </div>
+          <div>
+            <p className="foot__head">Cómo llegar</p>
+            <p className="foot__text">Dirección de ejemplo, local 4</p>
+            <a
+              className="foot__link"
+              href="https://www.google.com/maps/search/?api=1&query=Direcci%C3%B3n%20de%20ejemplo%2C%20local%204"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver en Google Maps
+            </a>
           </div>
         </div>
         <div className="wrap foot__legal">
